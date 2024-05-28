@@ -5,9 +5,8 @@
 
 
 function App() {
-    const [cart, setCart] = React.useState({
-        
-    })
+    const [cart, setCart] = React.useState(
+        JSON.parse(localStorage.getItem('cart') || '{}'))
 
     function addToCart(foodName: string) {
       if (!(foodName in cart)) {
@@ -40,6 +39,14 @@ function App() {
         cart[foodName] -= 1
         setCart({...cart})
     }
+
+    React.useEffect(
+        () => {
+            console.table(cart)
+            localStorage.setItem('cart', JSON.stringify(cart))
+        },
+        [cart]
+    )
 
     return (
         <div className="flex">
