@@ -11,6 +11,7 @@ dialog {
     background-color: rgba(0, 0, 0, 0.894);
     background-color: black;
     color: white;
+    transition-delay: 2s;
 
     .x{
         position: absolute;
@@ -30,4 +31,11 @@ dialog {
         border: 1px solid black;
       }
     }
+    }
+
+
+    /* Fix for the ::backdrop pseudo-element */
+    dialog::backdrop {
+        background-color: blue;
+        opacity: 0.5;
     }

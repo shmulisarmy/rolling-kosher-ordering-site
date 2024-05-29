@@ -5,6 +5,7 @@ nav{
             justify-content: space-evenly;
             position: sticky;
             top: 0%;
+            height: 50px;
             .icon{
                 padding: 10px;
                 font-size: xx-large;

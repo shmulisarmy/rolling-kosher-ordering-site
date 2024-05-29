@@ -9,7 +9,7 @@ function Item({ name, price, description, image_url, addToCart }: ItemProps) {
                     <h1>{name}</h1>
                     <p>{price}</p>
                     <p>{description}</p>
-                    <button onClick={() => addToCart(name)}>Add to Cart</button>
+                    <button className="add-to-cart" onClick={() => addToCart(name)}>Add to Cart</button>
                 </div>
         </div>
     )

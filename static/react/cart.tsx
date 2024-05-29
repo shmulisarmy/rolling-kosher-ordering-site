@@ -1,6 +1,8 @@
 function showDialog() {
     const dialog = document.querySelector('dialog');
     dialog.show();
+    console.log("updated")
+    document.querySelector('body').classList.add('model-open');
 }
 
 
