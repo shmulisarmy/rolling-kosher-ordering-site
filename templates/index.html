@@ -7,7 +7,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
       <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
       <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-      <link rel="stylesheet" href="/static/styles/main.css?v=1.3">
+      <link rel="stylesheet" href="/static/styles/main.css?v=1.4">
       <link rel="stylesheet" href="/static/styles/cart.css?v=1.4">
       <link rel="stylesheet" href="/static/styles/menu.css?v=1.2">
       <link rel="stylesheet" href="/static/styles/checkout.css?v=1.6">
@@ -19,35 +19,7 @@
       <script src="/static/scripts/data.ts" type="text/babel" async defer></script>
       <style>
 
-        header{
-          width: 100%;
-          height: calc(24vw + 160px);
-          img{
-            z-index: 100;
-            width: 100%;
-            height: 100%;
-          }
-        }
-        .cannot-edit-message {
-            display: none;
-            font-weight: bold;
-        }
-        main .cannot-edit-message{
-          color: rgb(158, 121, 51);
-
-        }
-        .cart .cannot-edit-message{
-          color: red;
-        }
-        .model-open {
-            background: linear-gradient(90deg, grey, grey);
-            .add-to-cart, .cartItems-container .buttons * {
-                display: none;
-            }
-            .cannot-edit-message {
-                display: block;
-            }
-        }
+        
       </style>
       <script>
         function removeBodyModelClass() {

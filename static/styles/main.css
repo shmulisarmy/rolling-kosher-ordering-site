@@ -1,3 +1,33 @@
+header{
+    width: 100%;
+    height: calc(24vw + 160px);
+    img{
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .cannot-edit-message {
+      display: none;
+      font-weight: bold;
+  }
+  main .cannot-edit-message{
+    color: rgb(158, 121, 51);
+
+  }
+  .cart .cannot-edit-message{
+    color: red;
+  }
+  .model-open {
+      background: linear-gradient(90deg, grey, grey);
+      .add-to-cart, .cartItems-container .buttons * {
+          display: none;
+      }
+      .cannot-edit-message {
+          display: block;
+      }
+  }
+
 nav{
             background: linear-gradient(90deg, rgba(70, 64, 64, 0.934), rgba(0, 0, 0, 0.882));
             color: white;
