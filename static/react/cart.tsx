@@ -12,8 +12,8 @@ function CartItem({ name, price, description, image_url, index, removeFromCart, 
                     <p>{price}</p>
                     <p>quantity: {cart[name]}</p>
 
+                    <div className="cannot-edit-message">you cannot edit this while in checkout</div>
                     <div className="buttons">
-
                         <button onClick={() => decrease(index)}>-</button>
                         <button onClick={() => increase(index)}>+</button>
                         <button onClick={() => removeFromCart(name)} className="remove">Remove</button>

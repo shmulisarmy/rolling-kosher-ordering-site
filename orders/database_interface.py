@@ -39,7 +39,7 @@ def delete_order(id: int):
 
 def get_all_orders() -> list[tuple[int, str, int, str]]:
     '''gets all orders from orders table'''
-    query = "select * from orders"
+    query = "select id, name, pickUpTime, pickUpTimeNumber, items from orders"
     with sqlite3.connect('main.db') as conn:
         cursor = conn.cursor()
         result = cursor.execute(query).fetchall()

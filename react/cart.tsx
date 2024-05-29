@@ -12,7 +12,6 @@ function CartItem({ name, price, description, image_url, index, removeFromCart, 
                     <p>quantity: {cart[name]}</p>
 
                     <div className="buttons">
-
                         <button onClick={() => removeFromCart(name)}>Remove</button>
                         <button onClick={() => decrease(index)}>-</button>
                         <button onClick={() => increase(index)}>+</button>

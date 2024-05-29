@@ -23,7 +23,7 @@ async def create_order(name: str = Form(...), pickUpTime: str = Form(...), items
         items = items[1:-1]
     if items[-1] == "'" or items[-1] == '"':
         items = items[:-1]
-    print(f"{name = }, {pickUpTime = }, {items = }")
+    print(f"{name = }, {pickUpTime = }, {pickUpTimeInt = }, {items = }")
     return database_interface.create_order(name, pickUpTime, pickUpTimeInt, items)
 
 @orders_router.put("/orders/{id}", response_class=JSONResponse)
@@ -44,6 +44,6 @@ async def get_all_orders():
     allorders: list[list] = [[col for col in order] for order in allorders]
     print(f"{allorders = }")
     for order in allorders:
-        order[-1] = json.loads(order[-2])
+        order[-1] = json.loads(order[-1])
     return allorders
 
