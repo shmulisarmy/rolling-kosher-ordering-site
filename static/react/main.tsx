@@ -36,8 +36,10 @@ function App() {
         setCart({...cart})
     }
     function decrease(foodName: string) {
-        cart[foodName] -= 1
-        setCart({...cart})
+        if (cart[foodName] > 0) 
+            {cart[foodName] -= 1
+            setCart({...cart})
+        }
     }
     
     return (

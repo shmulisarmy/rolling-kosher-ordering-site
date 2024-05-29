@@ -14,9 +14,9 @@ function CartItem({ name, price, description, image_url, index, removeFromCart, 
 
                     <div className="buttons">
 
-                        <button onClick={() => removeFromCart(name)}>Remove</button>
                         <button onClick={() => decrease(index)}>-</button>
                         <button onClick={() => increase(index)}>+</button>
+                        <button onClick={() => removeFromCart(name)} className="remove">Remove</button>
                     </div>
                 </div>
                 <img width="70px" height="70px" src={`/static/images/${name}.jpg`} alt={`${name}-image`} style={{ padding: "4%" }} />
