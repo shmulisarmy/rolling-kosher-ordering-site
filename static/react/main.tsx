@@ -1,4 +1,27 @@
 
+class ErrorBoundary extends React.Component<{}, { hasError: boolean }> {
+    constructor(props: {}) {
+        super(props)
+        this.state = { hasError: false }
+    }
+
+    static getDerivedStateFromError() {
+        return { hasError: true }
+    }
+
+    componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+        console.error(error, errorInfo)
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return <h1 style={{ textAlign: "center", color: "red" }}>Something went wrong. please reload</h1>
+        }
+
+        return this.props.children
+    }
+}
+
 
 
 
@@ -48,10 +71,12 @@ function App() {
     
     return (
         <div className="flex">
-
-            <DisplayCart cart={cart} removeFromCart={removeFromCart} {...{increase, decrease}} />
-            
-            {Menu_component}
+            <ErrorBoundary>
+                <DisplayCart cart={cart} removeFromCart={removeFromCart} {...{increase, decrease}} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+                {Menu_component}
+            </ErrorBoundary>
         </div>
     )
 }
