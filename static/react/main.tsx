@@ -39,15 +39,7 @@ function App() {
         cart[foodName] -= 1
         setCart({...cart})
     }
-
-    React.useEffect(
-        () => {
-            console.table(cart)
-            localStorage.setItem('cart', JSON.stringify(cart))
-        },
-        [cart]
-    )
-
+    
     return (
         <div className="flex">
 

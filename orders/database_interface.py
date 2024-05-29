@@ -12,12 +12,12 @@ def get_order(id: int) -> tuple:
         return result
     
     
-def create_order(name: str, pickUpTime: int, items: str) -> int:
+def create_order(name: str, pickUpTime: str, pickUpTimeInt: int, items: str) -> int:
         '''inserts name, pickUpTime, items into orders'''
-        query = "insert into orders (name, pickUpTime, items) values (?, ?, ?)"
+        query = "insert into orders (name, pickUpTime, pickUpTimeNumber, items) values (?, ?, ?, ?)"
         with sqlite3.connect('main.db') as conn:
             cursor = conn.cursor()
-            cursor.execute(query, (name, pickUpTime, items))
+            cursor.execute(query, (name, pickUpTime, pickUpTimeInt, items))
         return cursor.lastrowid
     
     

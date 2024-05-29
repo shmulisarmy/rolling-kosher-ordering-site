@@ -1,6 +1,6 @@
 function loadItems() {
   const items_input = document.querySelector('input[name="items"]');
-  items_input.value = localStorage.getItem('items');
+  items_input.value = localStorage.getItem('cart');
 }
 
 function showDialog() {
@@ -8,4 +8,10 @@ function showDialog() {
     dialog.show();
     console.log("updated")
     document.querySelector('body').classList.add('model-open');
+}
+
+
+function startCheckout() {
+  showDialog();
+  loadItems();
 }

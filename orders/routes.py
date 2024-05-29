@@ -1,9 +1,10 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Form
 from . import database_interface
 from fastapi import Request
 from fastapi.responses import JSONResponse
 import json
 from fastapi.templating import Jinja2Templates
+from .utils import timeStringToInt
 
 orders_router = APIRouter(tags=["orders"])
 templates = Jinja2Templates(directory="orders/templates")
@@ -16,8 +17,14 @@ async def create_order(request: Request):
     return templates.TemplateResponse("create.html", {"request": request})
 
 @orders_router.post("/create", response_class=JSONResponse)
-async def create_order(name: str, pickUpTime: int, items: str):
-    return database_interface.create_order(name, pickUpTime, items)
+async def create_order(name: str = Form(...), pickUpTime: str = Form(...), items: str = Form(...)):
+    pickUpTimeInt = timeStringToInt(pickUpTime)
+    if items[0] == "'" or items[0] == '"':
+        items = items[1:-1]
+    if items[-1] == "'" or items[-1] == '"':
+        items = items[:-1]
+    print(f"{name = }, {pickUpTime = }, {items = }")
+    return database_interface.create_order(name, pickUpTime, pickUpTimeInt, items)
 
 @orders_router.put("/orders/{id}", response_class=JSONResponse)
 async def update_order(id: int, request: Request):

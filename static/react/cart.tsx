@@ -42,9 +42,7 @@ function DisplayCart({ cart, removeFromCart, increase, decrease }: CartProps) {
                 }) : <p>your cart is empty</p>}
             </div>
             <h1>Total: {number_to_price(total)}</h1>
-            <button onClick={() => showDialog()}>  <span class="icon">&#x1F69A;</span>  Checkout</button>
+            <button onClick={startCheckout}>  <span className="icon">&#x1F69A;</span>  Checkout</button>
         </div>
     )
 }
-
-console.log(DisplayCart)
