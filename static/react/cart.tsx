@@ -1,9 +1,3 @@
-function showDialog() {
-    const dialog = document.querySelector('dialog');
-    dialog.show();
-    console.log("updated")
-    document.querySelector('body').classList.add('model-open');
-}
 
 
 function CartItem({ name, price, description, image_url, index, removeFromCart, increase, decrease, cart }: CartItemProps) {
