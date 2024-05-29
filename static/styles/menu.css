@@ -20,6 +20,11 @@ main {
         box-shadow: 1px 1px 1px;
         background-color: rgba(0, 0, 0, 0.383);
         color: white;
+        .price{
+            background: linear-gradient(90deg, rgb(210, 236, 210) 0%, rgb(118, 156, 118) 100%);
+            background-clip: text;
+            color: transparent;
+        }
 
         .img{
             height: 40%;

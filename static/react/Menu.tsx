@@ -7,7 +7,7 @@ function Item({ name, price, description, image_url, addToCart }: ItemProps) {
             </div>
                 <div className="text">
                     <h1>{name}</h1>
-                    <p>{price}</p>
+                    <h2 className="price">{price}</h2>
                     <p>{description}</p>
                     <div className="cannot-edit-message">you cannot edit this while in checkout</div>
                     <button className="add-to-cart" onClick={() => addToCart(name)}>Add to Cart</button>
