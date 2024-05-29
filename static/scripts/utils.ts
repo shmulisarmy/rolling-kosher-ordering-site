@@ -16,3 +16,8 @@ function price_to_number(price: string): number {
 function number_to_price(price: number): string {
     return "$" + price.toFixed(2)
 }
+
+// function scrollCartDown() {
+//     const cart = document.querySelector(".cartItems-container")
+//         cart.scrollTop = cart.scrollHeight
+// }

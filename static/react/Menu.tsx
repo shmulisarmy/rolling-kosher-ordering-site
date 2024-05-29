@@ -17,7 +17,7 @@ function Item({ name, price, description, image_url, addToCart }: ItemProps) {
 const Menu = ({
   addToCart
 }) => {
-  return <main>
+  return <main id="menu">
                 {menu.map((item, index) => <Item key={item.name} {...item} addToCart={addToCart} />)}
             </main>;
 }

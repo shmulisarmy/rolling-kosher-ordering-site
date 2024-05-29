@@ -44,6 +44,6 @@ async def get_all_orders():
     allorders: list[list] = [[col for col in order] for order in allorders]
     print(f"{allorders = }")
     for order in allorders:
-        order[-1] = json.loads(order[-1])
+        order[-1] = json.loads(order[-2])
     return allorders
 

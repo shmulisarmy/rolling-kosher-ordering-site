@@ -1,9 +1,3 @@
-
-
-
-
-
-
 function App() {
     const [cart, setCart] = React.useState(
         JSON.parse(localStorage.getItem('cart') || '{}'))
@@ -11,9 +5,11 @@ function App() {
     function addToCart(foodName: string) {
       if (!(foodName in cart)) {
           cart[foodName] = 1
-      }
-
-      setCart({...cart})
+        
+        setCart({...cart})
+        }
+        const $cart = document.querySelector(".cartItems-container")
+        $cart.scrollTop = c$art.scrollHeight
     }
 
     
@@ -21,13 +17,6 @@ function App() {
         delete cart[foodName]
         setCart({...cart})
     }
-    
-    React.useEffect(
-        () => {
-            console.table(cart)
-        },
-        [cart]
-    )
     
     const Menu_component = React.useMemo(() => <Menu addToCart={addToCart}  />, [])
     
@@ -61,3 +50,5 @@ function App() {
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
+

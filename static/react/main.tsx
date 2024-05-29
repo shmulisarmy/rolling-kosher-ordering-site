@@ -11,14 +11,16 @@ function App() {
     function addToCart(foodName: string) {
       if (!(foodName in cart)) {
           cart[foodName] = 1
+          localStorage.setItem('cart', JSON.stringify(cart))
+          setCart({...cart})
       }
 
-      setCart({...cart})
     }
 
     
     function removeFromCart(foodName: string) {
         delete cart[foodName]
+        localStorage.setItem('cart', JSON.stringify(cart))
         setCart({...cart})
     }
     
@@ -33,11 +35,13 @@ function App() {
     
     function increase(foodName: string) {
         cart[foodName] += 1
+        localStorage.setItem('cart', JSON.stringify(cart))
         setCart({...cart})
     }
     function decrease(foodName: string) {
         if (cart[foodName] > 0) 
             {cart[foodName] -= 1
+            localStorage.setItem('cart', JSON.stringify(cart))
             setCart({...cart})
         }
     }

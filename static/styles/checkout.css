@@ -8,7 +8,7 @@ dialog {
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 1px 1px 1px;
-    background-color: rgba(0, 0, 0, 0.894);
+    background-color: rgb(0, 0, 0);
     background-color: black;
     color: white;
     transition-delay: 2s;
