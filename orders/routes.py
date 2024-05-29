@@ -3,13 +3,17 @@ from . import database_interface
 from fastapi import Request
 from fastapi.responses import JSONResponse
 import json
-
+from fastapi.templating import Jinja2Templates
 
 orders_router = APIRouter(tags=["orders"])
-
+templates = Jinja2Templates(directory="orders/templates")
 @orders_router.get("/orders/{id}", response_class=JSONResponse)
 async def get_order(id: int):
     return database_interface.get_order(id)
+
+@orders_router.get("/create", response_class=JSONResponse)
+async def create_order(request: Request):
+    return templates.TemplateResponse("create.html", {"request": request})
 
 @orders_router.post("/create", response_class=JSONResponse)
 async def create_order(name: str, pickUpTime: int, items: str):

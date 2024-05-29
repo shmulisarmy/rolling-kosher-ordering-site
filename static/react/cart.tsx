@@ -1,3 +1,8 @@
+function showDialog() {
+    const dialog = document.querySelector('dialog');
+    dialog.show();
+}
+
 
 function CartItem({ name, price, description, image_url, index, removeFromCart, increase, decrease, cart }: CartItemProps) {
     return (
@@ -24,7 +29,7 @@ function CartItem({ name, price, description, image_url, index, removeFromCart, 
     )
 }
 
-function DisplayCart({ cart, removeFromCart, increase, decrease }: DisplayCartProps) {
+function DisplayCart({ cart, removeFromCart, increase, decrease }: CartProps) {
     let total = 0;
     const cart_to_list = Object.keys(cart);
     return (
@@ -41,7 +46,9 @@ function DisplayCart({ cart, removeFromCart, increase, decrease }: DisplayCartPr
                 }) : <p>your cart is empty</p>}
             </div>
             <h1>Total: {number_to_price(total)}</h1>
-            <button>  <span class="icon">&#x1F69A;</span>  Checkout</button>
+            <button onClick={() => showDialog()}>  <span class="icon">&#x1F69A;</span>  Checkout</button>
         </div>
     )
 }
+
+console.log(DisplayCart)

@@ -24,7 +24,7 @@ interface ItemProps extends MenuItem {
     addToCart: (foodName: string) => void;
 }
 
-interface DisplayCartProps {
+interface CartProps {
     cart: CartState;
     removeFromCart: (index: number) => void;
 }
