@@ -17,23 +17,23 @@ async def create_order(request: Request):
     return templates.TemplateResponse("create.html", {"request": request})
 
 @orders_router.post("/create", response_class=JSONResponse)
-async def create_order(name: str = Form(...), pickUpTime: str = Form(...), items: str = Form(...)):
+async def create_order(name: str = Form(...), pickUpTime: str = Form(...), items: str = Form(...), phone: str = Form(...)):
     pickUpTimeInt = timeStringToInt(pickUpTime)
     if items[0] == "'" or items[0] == '"':
         items = items[1:-1]
     if items[-1] == "'" or items[-1] == '"':
         items = items[:-1]
-    print(f"{name = }, {pickUpTime = }, {pickUpTimeInt = }, {items = }")
-    return database_interface.create_order(name, pickUpTime, pickUpTimeInt, items)
+    print(f"{name = }, {pickUpTime = }, {pickUpTimeInt = }, {items = } {phone = }")
+    return database_interface.create_order(name, pickUpTime, pickUpTimeInt, items, phone)
 
-@orders_router.put("/orders/{id}", response_class=JSONResponse)
-async def update_order(id: int, request: Request):
-    return database_interface.update_order(request, id)
+# @orders_router.put("/orders/{id}", response_class=JSONResponse)
+# async def update_order(id: int, request: Request):
+#     return database_interface.update_order(request, id)
 
-@orders_router.delete("/orders/{id}", response_class=JSONResponse)
-async def delete_order(id: int):
-    database_interface.delete_order(id)
-    return JSONResponse({"message": "deleted"}, status_code=200)
+# @orders_router.delete("/orders/{id}", response_class=JSONResponse)
+# async def delete_order(id: int):
+#     database_interface.delete_order(id)
+#     return JSONResponse({"message": "deleted"}, status_code=200)
 
 
 

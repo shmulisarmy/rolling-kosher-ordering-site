@@ -12,12 +12,12 @@ def get_order(id: int) -> tuple:
         return result
     
     
-def create_order(name: str, pickUpTime: str, pickUpTimeInt: int, items: str) -> int:
+def create_order(name: str, pickUpTime: str, pickUpTimeInt: int, items: str, phone: str) -> int:
         '''inserts name, pickUpTime, items into orders'''
-        query = "insert into orders (name, pickUpTime, pickUpTimeNumber, items) values (?, ?, ?, ?)"
+        query = "insert into orders (name, pickUpTime, pickUpTimeNumber, items, phone) values (?, ?, ?, ?, ?)"
         with sqlite3.connect('main.db') as conn:
             cursor = conn.cursor()
-            cursor.execute(query, (name, pickUpTime, pickUpTimeInt, items))
+            cursor.execute(query, (name, pickUpTime, pickUpTimeInt, items, phone))
         return cursor.lastrowid
     
     
@@ -39,7 +39,7 @@ def delete_order(id: int):
 
 def get_all_orders() -> list[tuple[int, str, int, str]]:
     '''gets all orders from orders table'''
-    query = "select id, name, pickUpTime, pickUpTimeNumber, items from orders"
+    query = "select id, name, pickUpTime, pickUpTimeNumber, phone, items from orders"
     with sqlite3.connect('main.db') as conn:
         cursor = conn.cursor()
         result = cursor.execute(query).fetchall()
