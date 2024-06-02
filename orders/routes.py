@@ -9,9 +9,7 @@ orders_bp = Blueprint('orders', __name__)
 def get_order(id):
     return jsonify(database_interface.get_order(id))
 
-@orders_bp.route("/create", methods=["GET"])
-def create_order_get():
-    return render_template("create.html")
+
 
 @orders_bp.route("/create", methods=["POST"])
 def create_order_post():

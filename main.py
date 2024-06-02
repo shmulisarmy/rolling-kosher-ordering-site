@@ -13,6 +13,11 @@ app.config['SECRET_KEY'] = 'your secret key'
 app.register_blueprint(orders_bp, url_prefix='/orders')
 
 
+@app.route("/orders/create", methods=["GET"])
+def create_order_get():
+    return render_template("create.html")
+
+
 @app.route('/')
 def index():
     return render_template('index.html', title='Home')
