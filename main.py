@@ -45,6 +45,10 @@ def create_order_get():
 
 @app.route('/')
 def index():
+    try:
+        raise Exception
+    except Exception as e:
+        write_to_file(str(e))
     return render_template('index.html', title='Home')
 
 
