@@ -66,7 +66,7 @@ def get_all_orders():
 
 
 def write_to_file(data):
-    with open('data.json', 'w') as f:
+    with open('info.txt', 'w') as f:
         f.write(data)
 
 
