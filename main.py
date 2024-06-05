@@ -64,6 +64,12 @@ def get_all_orders():
 
 
 
+@app.route('/dummy')
+def index():
+    return "this is the dummy route"
+
+
+
 
 def write_to_file(data):
     with open('/home/esrogim/mysite/info.txt', 'w') as f:
