@@ -72,7 +72,7 @@ def index():
 
 
 def write_to_file(data):
-    with open('/home/esrogim/mysite/info.txt', 'w') as f:
+    with open('/home/esrogim/mysite/info.txt', 'a') as f:
         f.write(data)
 
 
