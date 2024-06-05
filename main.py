@@ -11,7 +11,7 @@ def index():
 def hello():
     items = request.get_json()
     print(f"got from user: {items}")
-    return {"items": items}
+    return {"message": "this items were added to the cart"}
 
 
 if __name__ == '__main__':
