@@ -43,23 +43,16 @@ def create_order_get():
         write_to_file(str(e))
 
 
-@app.route('/')
+@app.route('/all')
 def index():
-    try:
-        raise Exception
-    except Exception as e:
-        write_to_file(str(e))
     return render_template('index.html', title='Home')
 
 
 
-@app.route("/all")
+@app.route("/")
 def get_all_orders():
-    try:
-        allorders = database_interface.get_all_orders()
-        return jsonify(allorders)
-    except Exception as e:
-        write_to_file(str(e))
+    allorders = database_interface.get_all_orders()
+    return jsonify(allorders)
 
 
 
