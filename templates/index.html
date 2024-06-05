@@ -20,9 +20,10 @@
         body: JSON.stringify(items),
       })
       .then(response => response.json())
-      .then(data => console.log(`server response: ${data}`));
+      .then(data => console.log(`server response: ${data.message}`));
     }
   </script>
   <button onclick="sendItems()">Send Items</button>
+  <h1 style="background: linear-gradient(45deg, rgb(70, 70, 204) 0%, rgb(1, 30, 1) 100%);">Hello how are you doing</h1>
 </body>
 </html>
